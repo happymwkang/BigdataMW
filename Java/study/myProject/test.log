@@ -1,0 +1,30 @@
+09:20:38,644 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:20:38,647 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SaveLog(ProbonoAdminService.java:31)  - 저장완료
+09:20:38,650 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:20:38,652 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:20:38,653 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectFailLog(ProbonoAdminService.java:46)  - 검색하신 프로젝트가 없습니다.
+09:20:38,658 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.UpdateLog(ProbonoAdminService.java:21)  - 수정완료
+09:20:38,661 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:20:38,665 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.UpdateFailLog(ProbonoAdminService.java:36)  - 수정되지 않았습니다.
+09:20:38,665 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.DeleteLog(ProbonoAdminService.java:26)  - 삭제완료
+09:20:38,665 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectFailLog(ProbonoAdminService.java:46)  - 검색하신 프로젝트가 없습니다.
+09:32:17,849 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:32:17,851 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SaveLog(ProbonoAdminService.java:31)  - 저장완료
+09:32:17,853 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:32:17,856 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:32:17,857 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectFailLog(ProbonoAdminService.java:46)  - 검색하신 프로젝트가 없습니다.
+09:32:17,857 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.UpdateLog(ProbonoAdminService.java:21)  - 수정완료
+09:32:17,858 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:32:17,859 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.UpdateFailLog(ProbonoAdminService.java:36)  - 수정되지 않았습니다.
+09:32:17,860 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.DeleteLog(ProbonoAdminService.java:26)  - 삭제완료
+09:32:17,860 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectFailLog(ProbonoAdminService.java:46)  - 검색하신 프로젝트가 없습니다.
+09:32:47,058 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:32:47,060 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SaveLog(ProbonoAdminService.java:31)  - 저장완료
+09:32:47,063 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:32:47,065 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:32:47,067 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectFailLog(ProbonoAdminService.java:46)  - 검색하신 프로젝트가 없습니다.
+09:32:47,067 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.UpdateLog(ProbonoAdminService.java:21)  - 수정완료
+09:32:47,068 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectLog(ProbonoAdminService.java:16)  - 조회완료
+09:32:47,069 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.UpdateFailLog(ProbonoAdminService.java:36)  - 수정되지 않았습니다.
+09:32:47,069 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.DeleteLog(ProbonoAdminService.java:26)  - 삭제완료
+09:32:47,070 - INFO probono.controller.ProbonoController probono.service.ProbonoAdminService.SelectFailLog(ProbonoAdminService.java:46)  - 검색하신 프로젝트가 없습니다.

@@ -1,0 +1,29 @@
+* 참고 *
+
+1. 주제
+	- 재능 기부 프로젝트
+	
+2. 구성
+	1. 기부자 - Activist
+	2. 수혜자 - Recipient
+	3. 재능기부 카테고리 - Probono
+	4. 실제 진행중인 재능기부 프로젝트 - ProbonoProject
+	
+3. 학습 취지
+	1. 상속 관계
+	2. 다형성
+	3. 예외 처리 적용 및 타당성 습득
+	4. 객체들의 참조 구조 이해하기
+	
+	5. 코드 개선하기
+	6. lombok 추가
+	
+4. 적용 pattern
+	1. MVC 
+		Model - 데이터 처리등의 핵심 로직 
+		View - end user들에게 보이는 화면단 처리 로직
+		Controller - 요청별 구분 및 응답 화면 및 예외 발생시 처리 화면 지정 로직
+		
+	2. DTO - DataTrans Object
+	3. SingleTon Design Pattern
+	
