@@ -1,0 +1,66 @@
+
+1. 부서번호가 80인 사람들의 JOB_ID를 중복 없이 출력하기
+
+2. JOB_ID가 SA_MAN, SA_REP인 이메일과 JOB_ID 출력하고 row개수는 몇개 인가?
+
+3. 부서번호가 80인 사람들의 이메일과 JOB_ID 출력하고 row개수는 몇개 인가?
+
+4. 2번과 3번row수가 다른 이유는? 
+
+5. 2001년부터 2003년사이의 입사자면서 연봉이 100000이상 150000이하인 사장님 직속 부하직원의 last_name과 연봉 출력하기.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+답1. 
+select distinct job_id 
+from employees
+where department_id = 80;
+
+답2.
+select email, job_id 
+from employees
+where job_id in('SA_MAN','SA_REP');
+
+로우수 : 35 rows selected.
+
+답3.
+select email, job_id 
+from employees
+where department_id = 80;
+
+로우수 : 34 rows selected.
+
+답4.
+JOB_ID가 SA_REP이면서 부서번호값이 null인 데이터가 존재하기 때문.
+
+부서번호를 80으로 조회하면 JOB_ID가 SA_MAN, SA_REP밖에 없다.
+JOB_ID기준으로 검색했을때는 문제없이 전부 출력되지만,
+부서번호로 조회했을때에는 사번 178인 사람의 JOB_ID가 SA_REP임에도 부서번호값이 null이라 조회되지 않는다.
+따라서 한건 차이남.
+
+답5.
+select last_name, salary*12 연봉  
+from employees
+where manager_id = '100'
+and hire_date between '2001/01/01' and '2003/12/31'
+and salary*12 between 100000 and 150000 
