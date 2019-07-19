@@ -1,0 +1,30 @@
+<이것은 실화다>
+실제 상황 : 재고관리직원인 John Seo씨가 행방불명 되었다는 신고를 접수한 FBI는 해당 회사에 문의를 하는 상황. 경찰이 기본적으로 조사해야하는 순서는 아래와 같다.
+
+1. 존씨에 대한 개인 정보를 통해 어느 지역에서 근무하다 실종되었는지
+2. 존씨의 상사와 같은 지역에 근무하고 있는 동료직원들에 대한 정보를 토대로 흔적을 쫒음.
+
+1. 존씨에 대한 개인 정보를 통해 어느 지역에서 근무하다 실종되었는지
+select * from employees where first_name || last_name = 'JohnSeo';
+select department_id from employees where first_name || last_name = 'JohnSeo';
+select * from departments where department_id = 50;
+select * from locations where location_id = 1500;
+
+2. 존씨의 상사와 같은 지역에 근무하고 있는 동료직원들에 대한 정보를 토대로 흔적을 쫒음.
+-- 2-1. 상사
+select manager_id from employees where first_name || last_name = 'JohnSeo';
+select * from employees where employee_id = 123;
+-- 2-2. 동료직원 (지역)
+select * from departments where location_id = 1500;
+select * from employees where department_id = 50; 
+
+3. 추리
+=> 메모를 남겼는데... John이랑 입사가 크게 차이가 안나 /  ~ S (S__% ) & 나보다 월급 50% 넘게 받는 사람
+
+select first_name||last_name 이름 , hire_date, salary
+from employees
+where abs(months_between(hire_date, '06/02/12')) <= 6
+and department_id = 50
+and upper(first_name) like 'S__%'
+and salary > round(2700*1.5, 4)
+order by hire_date asc;
