@@ -30,11 +30,17 @@ class Solution {
 			}
 	
 		}
-		// System.out.println("testest " + score3);
-		int[] result = { score1, score2, score3 };
-		Arrays.sort(result);
-		System.out.println(result[0]);
-        return result;
+		// 수정부분
+		  max_score = Math.max(score1, Math.max(score2, score3));
+        			List<Integer> list = new ArrayList<>();
+       			 if(max_score == score1) list.add(1);
+       			 if(max_score == score2) list.add(2);
+       			 if(max_score == score3) list.add(3);
+        
+      			  answer = new int[list.size()];
+     			   for(int i=0; i<list.size(); i++) {
+       			     answer[i] = (int) list.get(i);
+      				  return result;
 	}
     
 }
