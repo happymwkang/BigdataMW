@@ -1,0 +1,42 @@
+create or replace procedure dept_insert(v_deptno IN dept01.deptno%type,
+                                        v_dname IN dept01.dname%type,
+                                        v_loc IN dept01.loc%type)
+is
+begin
+    insert into dept01
+    values (v_deptno, v_dname, v_loc);
+end;
+/
+
+--특정사원의 부서이동
+create or replace procedure dept_update(v_empno IN emp.empno%type,
+                                        v_deptno IN dept01.dname%type)
+is
+begin
+    update emp01 
+    set deptno = v_deptno
+    where empno=v_empno;
+end;
+/
+
+create or replace procedure emp_delete(v_empno IN emp.empno%type)
+is
+begin
+    delete emp01 
+    where empno=v_empno;
+end;
+/
+
+create or replace procedure emp_insert(v_empno IN emp.empno%type,
+                                       v_ename IN emp.ename%type,
+                                       v_job IN emp.job%type,
+                                       v_mgr IN emp.mgr%type,
+                                       v_sal IN emp.sal%type,
+                                       v_comm IN emp.comm%type,
+                                       v_deptno IN emp.deptno%type)
+is
+begin
+    insert into emp01
+    values(v_empno, v_ename, v_job, v_mgr, to_date(sysdate, 'RRRR/mm/dd'), v_sal, v_comm, v_deptno);
+end;
+/
