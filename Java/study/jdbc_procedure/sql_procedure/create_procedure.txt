@@ -1,3 +1,5 @@
+
+--신규부서 Insert
 create or replace procedure dept_insert(v_deptno IN dept01.deptno%type,
                                         v_dname IN dept01.dname%type,
                                         v_loc IN dept01.loc%type)
@@ -19,6 +21,7 @@ begin
 end;
 /
 
+--직원 퇴사처리 (DELETE)
 create or replace procedure emp_delete(v_empno IN emp.empno%type)
 is
 begin
@@ -27,6 +30,7 @@ begin
 end;
 /
 
+--신규직원 INSERT
 create or replace procedure emp_insert(v_empno IN emp.empno%type,
                                        v_ename IN emp.ename%type,
                                        v_job IN emp.job%type,

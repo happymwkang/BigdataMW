@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class JdbcEmpDeptDAO {
 	
 	//신규 부서 등록
-	public static boolean dept_insert(JdbcDeptDTO dept) {
+	public static boolean deptInsert(JdbcDeptDTO dept) throws SQLException{
 		Connection conn = null;
 		CallableStatement cstmt = null;
 		
@@ -23,20 +23,17 @@ public class JdbcEmpDeptDAO {
 			
 			int result = cstmt.executeUpdate();
 			if(result != 0) {
-				System.out.println("신규 부서가 등록 되었습니다.");
-				System.out.println(dept_select(dept.getDeptno()));
+				JdbcEndView.messageView("신규 부서가 등록 되었습니다.");
+				JdbcEndView.deptView(deptSelect(dept.getDeptno()));
 				return true;
 			}
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
+		}finally {
 			DBUtil.close(conn, cstmt);
 			}
 		return false;
 	}
 	
-	public static boolean emp_insert(JdbcEmpDTO emp) {
+	public static boolean empInsert(JdbcEmpDTO emp) throws SQLException{
 		Connection conn = null;
 		CallableStatement cstmt = null;
 		
@@ -54,19 +51,17 @@ public class JdbcEmpDeptDAO {
 			
 			int result = cstmt.executeUpdate();
 			if(result != 0) {
-				System.out.println("\n 신규직원이 등록 되었습니다.");
-				System.out.println(emp_select(emp.getEmpno()));
+				JdbcEndView.messageView("\n 신규직원이 등록 되었습니다.");
+				JdbcEndView.empView(empSelect(emp.getEmpno()));
 				return true;
 			}
-		}catch(SQLException e) {
-			e.printStackTrace();
 		}finally {
 			DBUtil.close(conn, cstmt);
 		}
 		return false;
 	}
 	
-	public static JdbcDeptDTO dept_select(int deptno) {
+	public static JdbcDeptDTO deptSelect(int deptno) throws SQLException{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -82,15 +77,13 @@ public class JdbcEmpDeptDAO {
 			if(rset.next()) {
 				dept = new JdbcDeptDTO(rset.getInt(1), rset.getString(2), rset.getString(3));
 			}
-		}catch(SQLException e) {
-			e.printStackTrace();
 		}finally {
 			DBUtil.close(conn, pstmt, rset);
 		}
 		return dept;
 	}
 	
-	public static boolean dept_update(int empno, int deptno) {
+	public static boolean deptUpdate(int empno, int deptno) throws SQLException{
 		Connection conn = null;
 		CallableStatement cstmt = null;
 		
@@ -104,20 +97,18 @@ public class JdbcEmpDeptDAO {
 			int result = cstmt.executeUpdate();
 			
 			if(result != 0) {
-				System.out.println(empno + " 사원이 " + deptno + "번 부서로 이동 처리 되었습니다." );
+				JdbcEndView.messageView(empno + " 사원이 " + deptno + "번 부서로 이동 처리 되었습니다." );
 //				JdbcEmpDTO emp = emp_select(empno);
-				System.out.println(emp_select(empno));
+				JdbcEndView.empView(empSelect(empno));
 				return true;
 			}
-		}catch(SQLException e) {
-			e.printStackTrace();
 		}finally{
 			DBUtil.close(conn, cstmt);
 		}
 		return false;
 	}
 	
-	public static boolean emp_delete(int empno) {
+	public static boolean empDelete(int empno) throws SQLException{
 		Connection conn = null;
 		CallableStatement cstmt = null;
 		
@@ -129,11 +120,9 @@ public class JdbcEmpDeptDAO {
 			int result = cstmt.executeUpdate();
 			
 			if(result != 0) {
-				System.out.println(empno + " 직원이 퇴사 처리 되었습니다.");
+				JdbcEndView.messageView(empno + " 직원이 퇴사 처리 되었습니다.");
 				return true;
 			}
-		}catch(SQLException e) {
-			e.printStackTrace();
 		}finally {
 			DBUtil.close(conn, cstmt);
 		}
@@ -141,7 +130,7 @@ public class JdbcEmpDeptDAO {
 	}
 	
 	//특정사원의 정보 변경 후 확인 로직
-	public static JdbcEmpDTO emp_select(int empno) {
+	public static JdbcEmpDTO empSelect(int empno) throws SQLException{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -158,8 +147,6 @@ public class JdbcEmpDeptDAO {
 									 rset.getString(5), rset.getInt(6), rset.getInt(7), rset.getInt(8));
 			}
 			
-		}catch(SQLException e) {
-			e.printStackTrace();
 		}finally {
 			DBUtil.close(conn, pstmt, rset);
 		}
