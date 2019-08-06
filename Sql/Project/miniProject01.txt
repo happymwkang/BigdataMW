@@ -1,0 +1,72 @@
+/* 전통시장 vs 대형마트 (특정품목 평균가격비교)*/
+create or replace procedure mart_type_avg_price (v_a_seq number)
+is 
+v_price price%rowtype;
+cursor mart_list_price is 
+select  m_type_name, a_name, round(avg(a_price)) from price
+where a_seq = v_a_seq
+group by m_type_name, a_name;
+begin
+open mart_list_price;
+loop 
+    fetch mart_list_price into v_price.m_type_name, v_price.a_name, v_price.a_price;
+    exit when mart_list_price%NOTFOUND;
+    dbms_output.put_line(v_price.m_type_name|| ' ' || v_price.a_name|| ' ' || v_price.a_price);
+end loop;
+close mart_list_price;
+end;
+/
+
+/*2012년 특정품목 최대가격과 해당 대형마트 판매점  최소가격과 해당 대형마트 판매점 동시 출력*/
+CREATE or REPLACE TYPE dataarray 
+AS VARRAY(4) OF VARCHAR2(80); 
+/
+
+create or replace function price_gap(s_a_seq number)
+return dataarray
+is   
+   v_max price.A_PRICE%type;
+   v_min price.A_PRICE%type;
+   v_m_name price.M_NAME%type;
+   v_a_price price.A_PRICE%type; 
+   v_m_name2 price.M_NAME%type;
+   v_a_price2 price.A_PRICE%type; 
+   dataall dataarray;
+begin
+   select max(a_price), min(a_price)
+      into v_max, v_min
+   from (select A_PRICE from price where A_SEQ = s_a_seq and M_TYPE_NAME='대형마트' and P_YEAR_MONTH like '2012%');
+   
+   select M_NAME, A_PRICE
+      into v_m_name, v_a_price
+   from (select * from price where A_SEQ = s_a_seq and M_TYPE_NAME='대형마트' and P_YEAR_MONTH like '2012%' and A_PRICE=v_max) where rownum=1;
+   
+   select M_NAME, A_PRICE
+      into v_m_name2, v_a_price2
+   from (select * from price where A_SEQ = s_a_seq and M_TYPE_NAME='대형마트' and P_YEAR_MONTH like '2012%' and A_PRICE=v_min) where rownum=1;
+   
+   dataall := dataarray(v_m_name, v_a_price, v_m_name2, v_a_price2);
+
+   return dataall;
+end;
+/
+
+/* 특정 품목 가격 10% 인상 */
+create or replace procedure price_update(v_a_seq IN price.a_seq%type)
+is
+begin
+    update price
+    set a_price = round(a_price *1.1)
+    where a_seq = v_a_seq;
+end;
+/
+
+
+/* 특정 품목 삭제 */
+create or replace procedure price_delete(v_a_seq IN price.a_seq%type)
+is
+begin
+    delete price
+    where a_seq = v_a_seq;
+end;
+/
