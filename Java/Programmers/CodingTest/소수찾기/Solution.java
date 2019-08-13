@@ -12,7 +12,7 @@ class Solution {
                       }
               }
         } 
-      }else if(n < 11 && n > 5){
+      }else if(n < 11 && n > 5){ 
           answer = 4;
       }else if(n == 5){
           answer = 3;
