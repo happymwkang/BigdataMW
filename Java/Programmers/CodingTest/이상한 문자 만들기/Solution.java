@@ -1,18 +1,22 @@
 class Solution {
   public String solution(String s) {
       String answer = "";
-      String[] test =  s.split(" ");
-		
-		for(int i=0; i < test.length ; i++) {
-			for(int j = 0; j < test[i].length(); j++) {
-				if(Character.isLowerCase(test[i].charAt(j))) {
-				answer += Character.toUpperCase(test[i].charAt(j));		
-				}else if(Character.isUpperCase(test[i].charAt(j))){
-					answer += Character.toLowerCase(test[i].charAt(j));	
+	  String[] test =  s.split(" ");
+			
+			for(int i=0; i < test.length ; i++) {
+				boolean isTrue = false;
+				for(int j = 0; j < test[i].length(); j++) {
+					if(j%2==0) {
+					answer += Character.toUpperCase(test[i].charAt(j));		
+					}else if(j%2!=0){
+						answer += Character.toLowerCase(test[i].charAt(j));	
+					}
+					isTrue = true;
+				}
+				if(i!= test.length-1 && isTrue == true) {
+					answer += " ";
 				}
 			}
-			answer += " ";
-		}
-      return answer;
+	      return answer;
   }
 }
